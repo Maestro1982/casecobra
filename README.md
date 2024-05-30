@@ -1,5 +1,7 @@
 CaseCobra - A Modern Fullstack E-Commerce Shop for Custom Phone Cases
 
+![landing page](public/image.png)
+
 # Features
 
 - 🛠️ Complete shop built from scratch in Next.js 14
