@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
+import { footerItems } from '@/constants';
+
 const Footer = () => {
   return (
     <footer className='bg-white relative h-20'>
@@ -15,24 +17,15 @@ const Footer = () => {
           </div>
           <div className='flex items-center justify-center'>
             <div className='flex space-x-8'>
-              <Link
-                href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'
-              >
-                Terms
-              </Link>
-              <Link
-                href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'
-              >
-                Cookie Policy
-              </Link>
+              {footerItems.map((item) => (
+                <Link
+                  key={item.id}
+                  href='#'
+                  className='text-sm text-muted-foreground hover:text-gray-600'
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

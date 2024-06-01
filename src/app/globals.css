@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: hidden; /* Ensure there's no vertical overflow */
+  width: 100%; /* Ensure body and html take full width */
+  height: 100%; /* Ensure body and html take full height */
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

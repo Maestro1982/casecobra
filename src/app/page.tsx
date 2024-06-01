@@ -1,13 +1,10 @@
 import Link from 'next/link';
 import { ArrowRight, Check, Star } from 'lucide-react';
-
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import Phone from '@/components/Phone';
 import { Icons } from '@/components/Icons';
 import Reviews from '@/components/Reviews';
-
 import { buttonVariants } from '@/components/ui/button';
-
 import { STARS, userImages, testimonials, listItems } from '@/constants';
 
 export default function Home() {
@@ -19,8 +16,6 @@ export default function Home() {
             <div className='relative flex flex-col mx-auto text-center lg:text-left items-center lg:items-start'>
               <div className='absolute w-28 left-0 -top-20 hidden lg:block'>
                 <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28' />
-                {/* The reason that the normal img html is used, because the Image of nextjs uses lazy loading
-                    to optimize site performance. Which is very handy but can also look pretty horrendous in some scenarios. */}
                 <img src='/snake-1.png' alt='Snake image' className='w-full' />
               </div>
               <h1 className='relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-4xl md:text-5xl lg:text-6xl'>
@@ -134,9 +129,6 @@ export default function Home() {
                   ))}
                 </div>
                 <div className='text-lg leading-8'>
-                  {/* The dangerouslySetInnerHTML attribute is used to render HTML content within the quote. 
-                      This approach keeps the data separate from the component logic, 
-                      making the code cleaner and more maintainable.*/}
                   <p
                     dangerouslySetInnerHTML={{ __html: testimonial.quote }}
                   ></p>
@@ -200,8 +192,8 @@ export default function Home() {
           </div>
 
           <ul className='mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit'>
-            {listItems.map((item, index) => (
-              <li key={index} className='w-fit'>
+            {listItems.map((item) => (
+              <li key={item.id} className='w-fit'>
                 <Check className='h-5 w-5 text-green-600 inline mr-1.5' />
                 {item.name}
               </li>

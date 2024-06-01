@@ -69,3 +69,18 @@ export const listItems = [
     name: '2 year print warranty',
   },
 ];
+
+export const footerItems = [
+  {
+    id: 1,
+    name: 'Terms',
+  },
+  {
+    id: 2,
+    name: 'Privacy Policy',
+  },
+  {
+    id: 3,
+    name: 'Cookie Policy',
+  },
+];

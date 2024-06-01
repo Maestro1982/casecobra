@@ -19,10 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      </head>
+      <body
+        className={inter.className}
+        style={{ overflowX: 'hidden', overflowY: 'auto' }}
+      >
         <Navbar />
-        {children}
-        <Footer />
+        <main className='flex flex-col min-h-[calc(100vh-3.5rem-1px)]'>
+          <div className='flex flex-col flex-1 h-full'>{children}</div>
+          <Footer />
+        </main>
       </body>
     </html>
   );
