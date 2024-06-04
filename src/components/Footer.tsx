@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
-import { footerItems } from '@/constants';
+import { FOOTER_ITEMS } from '@/constants';
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           <div className='flex items-center justify-center'>
             <div className='flex space-x-8'>
-              {footerItems.map((item) => (
+              {FOOTER_ITEMS.map((item) => (
                 <Link
                   key={item.id}
                   href='#'

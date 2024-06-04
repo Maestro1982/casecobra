@@ -6,7 +6,7 @@ import { useInView } from 'framer-motion';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import Phone from '@/components/Phone';
 
-import { phoneImages } from '@/constants';
+import { PHONE_IMAGES } from '@/constants';
 
 import { cn } from '@/lib/utils';
 
@@ -110,7 +110,7 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
 function ReviewGrid() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.4 });
-  const columns = splitArray(phoneImages, 3);
+  const columns = splitArray(PHONE_IMAGES, 3);
   const column1 = columns[0];
   const column2 = columns[1];
   const column3 = splitArray(columns[2], 2);

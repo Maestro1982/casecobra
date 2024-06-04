@@ -1,4 +1,4 @@
-export const userImages = [
+export const USER_IMAGES = [
   {
     id: 1,
     src: '/users/user-1.png',
@@ -19,11 +19,11 @@ export const userImages = [
     id: 5,
     src: '/users/user-5.jpg',
   },
-];
+] as const;
 
 export const STARS = 5;
 
-export const testimonials = [
+export const TESTIMONIALS = [
   {
     id: 1,
     rating: STARS,
@@ -40,9 +40,9 @@ export const testimonials = [
     userName: 'Melissa',
     verified: true,
   },
-];
+] as const;
 
-export const phoneImages = [
+export const PHONE_IMAGES = [
   '/testimonials/1.jpg',
   '/testimonials/2.jpg',
   '/testimonials/3.jpg',
@@ -51,7 +51,7 @@ export const phoneImages = [
   '/testimonials/6.jpg',
 ];
 
-export const listItems = [
+export const LIST_ITEMS = [
   {
     id: 1,
     name: 'High-quality silicone material',
@@ -68,9 +68,9 @@ export const listItems = [
     id: 4,
     name: '2 year print warranty',
   },
-];
+] as const;
 
-export const footerItems = [
+export const FOOTER_ITEMS = [
   {
     id: 1,
     name: 'Terms',
@@ -83,7 +83,7 @@ export const footerItems = [
     id: 3,
     name: 'Cookie Policy',
   },
-];
+] as const;
 
 export const STEPS = [
   {

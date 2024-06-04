@@ -5,7 +5,7 @@ import Phone from '@/components/Phone';
 import { Icons } from '@/components/Icons';
 import Reviews from '@/components/Reviews';
 import { buttonVariants } from '@/components/ui/button';
-import { STARS, userImages, testimonials, listItems } from '@/constants';
+import { STARS, USER_IMAGES, TESTIMONIALS, LIST_ITEMS } from '@/constants';
 
 export default function Home() {
   return (
@@ -49,7 +49,7 @@ export default function Home() {
 
               <div className='mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5'>
                 <div className='flex -space-x-4'>
-                  {userImages.map((user) => (
+                  {USER_IMAGES.map((user) => (
                     <img
                       key={user.id}
                       className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 object-cover'
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
 
           <div className='mx-auto grid grid-cols-1 max-w-2xl px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16'>
-            {testimonials.map((testimonial) => (
+            {TESTIMONIALS.map((testimonial) => (
               <div
                 key={testimonial.id}
                 className='flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20'
@@ -192,7 +192,7 @@ export default function Home() {
           </div>
 
           <ul className='mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit'>
-            {listItems.map((item) => (
+            {LIST_ITEMS.map((item) => (
               <li key={item.id} className='w-fit'>
                 <Check className='h-5 w-5 text-green-600 inline mr-1.5' />
                 {item.name}
