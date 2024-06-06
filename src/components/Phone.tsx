@@ -28,7 +28,7 @@ const Phone = ({ className, imgSrc, dark = false, ...props }: PhoneProps) => {
         <img
           src={imgSrc}
           alt='Overlaying phone image'
-          className='object-cover'
+          className='object-cover min-h-full min-w-full'
         />
       </div>
     </div>

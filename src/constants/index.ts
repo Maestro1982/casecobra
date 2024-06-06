@@ -102,3 +102,29 @@ export const STEPS = [
     url: '/preview',
   },
 ];
+
+export const HIGHLIGHTS_LIST_ITEMS = [
+  {
+    name: 'Wireless charging compatible',
+  },
+  {
+    name: 'TPU shock absorption',
+  },
+  {
+    name: 'Packaging made from recycled materials',
+  },
+  {
+    name: '2 years print warranty',
+  },
+];
+
+export const MATERIAL_LIST_ITEMS = [
+  {
+    id: 1,
+    name: 'High-quality silicone material',
+  },
+  {
+    id: 2,
+    name: 'Scratch- and fingerprint resistant coating',
+  },
+];

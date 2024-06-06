@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Recursive } from 'next/font/google';
 import './globals.css';
 
 import Navbar from '@/components/Navbar';
@@ -8,7 +8,7 @@ import Providers from '@/components/Providers';
 
 import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ subsets: ['latin'] });
+const recursive = Recursive({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Casecobra',
@@ -26,11 +26,11 @@ export default function RootLayout({
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </head>
       <body
-        className={inter.className}
+        className={recursive.className}
         style={{ overflowX: 'hidden', overflowY: 'auto' }}
       >
         <Navbar />
-        <main className='flex flex-col min-h-[calc(100vh-3.5rem-1px)]'>
+        <main className='flex flex-col grainy-light min-h-[calc(100vh-3.5rem-1px)]'>
           <div className='flex flex-col flex-1 h-full'>
             <Providers>{children}</Providers>
           </div>
