@@ -27,56 +27,64 @@ export async function POST(req: Request) {
     );
 
     if (event.type === 'checkout.session.completed') {
-      if (!event.data.object.customer_details?.email) {
-        throw new Error('User email is missing');
+      const session = event.data.object as ExtendedSession;
+      console.log('Checkout session completed:', session);
+
+      if (!session.customer_details?.email) {
+        throw new Error('Missing user email');
       }
-    }
 
-    const session = event.data.object as ExtendedSession;
-    const { userId, orderId } = session.metadata || {
-      userId: null,
-      orderId: null,
-    };
+      const { userId, orderId } = session.metadata || {
+        userId: null,
+        orderId: null,
+      };
 
-    if (!userId || !orderId) {
-      throw new Error('Invalid request metadata');
-    }
+      if (!userId || !orderId) {
+        throw new Error('Invalid request metadata');
+      }
 
-    const billingAddress = session.customer_details!.address;
-    const shippingAddress = session.shipping!.address;
+      const billingAddress = session.customer_details!.address;
+      const shippingAddress = session.shipping!.address;
 
-    const updatedOrder = await db.order.update({
-      where: {
-        id: orderId,
-      },
-      data: {
-        isPaid: true,
-        shippingAddress: {
-          create: {
-            name: session.customer_details!.name!,
-            city: shippingAddress!.city!,
-            country: shippingAddress!.country!,
-            postalCode: shippingAddress!.postal_code!,
-            street: shippingAddress!.line1!,
-            state: shippingAddress!.state,
+      console.log('Billing address:', billingAddress);
+      console.log('Shipping address:', shippingAddress);
+
+      const updatedOrder = await db.order.update({
+        where: {
+          id: orderId,
+        },
+        data: {
+          isPaid: true,
+          shippingAddress: {
+            create: {
+              name: session.customer_details!.name!,
+              city: shippingAddress!.city!,
+              country: shippingAddress!.country!,
+              postalCode: shippingAddress!.postal_code!,
+              street: shippingAddress!.line1!,
+              state: shippingAddress!.state,
+            },
+          },
+
+          billingAddress: {
+            create: {
+              name: session.customer_details!.name!,
+              city: billingAddress!.city!,
+              country: billingAddress!.country!,
+              postalCode: billingAddress!.postal_code!,
+              street: billingAddress!.line1!,
+              state: billingAddress!.state,
+            },
           },
         },
-        billingAddress: {
-          create: {
-            name: session.customer_details!.name!,
-            city: billingAddress!.city!,
-            country: billingAddress!.country!,
-            postalCode: billingAddress!.postal_code!,
-            street: billingAddress!.line1!,
-            state: billingAddress!.state,
-          },
-        },
-      },
-    });
+      });
+
+      console.log('Updated order:', updatedOrder);
+    }
 
     return NextResponse.json({ result: event, ok: true });
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error('Error processing webhook:', err);
 
     return NextResponse.json(
       { message: 'Something went wrong', ok: false },
