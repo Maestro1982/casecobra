@@ -8,12 +8,11 @@ import Providers from '@/components/Providers';
 
 import { Toaster } from '@/components/ui/toaster';
 
+import { constructMetadata } from '@/lib/utils';
+
 const recursive = Recursive({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Casecobra',
-  description: 'A Modern E-Commerce-Store for Custom Phone Cases',
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({
   children,
